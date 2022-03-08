@@ -53,14 +53,14 @@ public class BubbleSort : ISorting<int>
     /// </summary>
     /// <param name="arr"></param>
     /// <returns></returns>
-    public static (long iterations, long bubbles) InsightfulSort(int[] arr)
+    public static InsightData InsightfulSort(int[] arr)
     {
-        (long it, long b) = (0, 0);
+        (long iterations, long bubbles) = (0, 0);
 
-        var bubble = new BubbleSort(() => it++, () => b++);
+        var bubble = new BubbleSort(() => iterations++, () => bubbles++);
 
         bubble.Sort(arr);
 
-        return (it, b);
+        return new (iterations, iterations * 2, bubbles * 2, bubbles);
     }
 }
