@@ -23,9 +23,7 @@ public class BubbleSortTests : UnitTestBase
     [InlineData(new[] { 25, 20, 15, 10, 5 }, new[] { 5, 10, 15, 20, 25 }, 10, 10)]
     public void WhenSortInvoked_ThenVerifyInsight(int[] arr, int[] expectedArray, long expectedIterations, long expectedBubbles)
     {
-        var bubble = new BubbleSort();
-
-        (long actualIterations, long actualBubbles) = bubble.InsightfulSort(arr);
+        (long actualIterations, long actualBubbles) = BubbleSort.InsightfulSort(arr);
 
         Assert.Equal(expectedArray, arr);
         Assert.Equal(expectedIterations, actualIterations);
